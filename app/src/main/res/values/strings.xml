@@ -1,0 +1,39 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">Responsible cooking</string>
+
+    <!-- Menu -->
+    <string name="title_home">Home</string>
+    <string name="title_search">Search</string>
+    <string name="title_profile">Profile</string>
+    <string name="title_recipes">Recipes</string>
+    <string name="title_login">Login</string>
+
+    <!-- FACEBOOK PURPOSE -->
+    <string name="facebook_app_id" translatable="false">1192835410912533</string>
+    <string name="fb_login_protocol_scheme" translatable="false" tools:ignore="UnusedResources">fb1192835410912533</string>
+
+
+    <!-- MAIN ACTIVITY -->
+    <string name="error_not_connected">You have to login !</string>
+    <string name="error_authentication_canceled">Connection cancel&#8230;</string>
+    <string name="error_no_internet">No internet connexion !</string>
+    <string name="error_unknown_error">An unknown error produce&#8230;</string>
+    <string name="connection_succeed">Connecttion succed !</string>
+    <string name="button_login_text_logged">Show profile</string>
+    <string name="button_login_text_not_logged">Connexion</string>
+
+    <!-- LOGIN ACTIVITY -->
+    <string name="toolbar_title_login_activity">Your Profile</string>
+    <string name="text_input_username">Username</string>
+    <string name="text_view_email">Email adress :</string>
+    <string name="button_update_account">Update username</string>
+    <string name="button_delete_account">Delete your account</string>
+    <string name="button_sign_out_account">Sign out</string>
+    <string name="info_no_email_found">No email found</string>
+    <string name="info_no_username_found">Aucun nom d\'utilisateur</string>
+    <string name="popup_message_confirmation_delete_account">Are you to delete your account ?</string>
+    <string name="popup_message_choice_yes">Yes !</string>
+    <string name="popup_message_choice_no">No</string>
+    <string name="email">Email</string>
+
+</resources>
