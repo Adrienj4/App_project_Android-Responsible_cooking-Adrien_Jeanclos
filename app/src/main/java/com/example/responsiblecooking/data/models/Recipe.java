@@ -19,7 +19,7 @@ public class Recipe {
     public Recipe(String ingredients, String recipe, User userSender) {
         this.ingredients = ingredients;
         this.recipe = recipe;
-        this.userSender = userSender;
+        //this.userSender = userSender;
     }
 
     // -- GETTERS --

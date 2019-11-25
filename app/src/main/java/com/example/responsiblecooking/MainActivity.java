@@ -35,6 +35,10 @@ public class MainActivity extends AppCompatActivity {
 
     //For design
     @BindView(R.id.bottom_navigation) BottomNavigationView bottomNavigationView;
+    private HomeFragment homeFragment;
+    private SearchFragment searchFragment;
+    private ProfileFragment profileFragment;
+    private RecipesFragment recipesFragment;
     FirebaseUser user;
 
     @Override

@@ -5,7 +5,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.example.responsiblecooking.data.models.User;
 
 /**
  * Created by Philippe on 30/01/2018.
@@ -22,13 +21,14 @@ public class UserHelper {
     }
 
     // --- CREATE ---
-
+    /*
     public static Task<Void> createUser(String uid, String username, String urlPicture) {
         // 1 - Create Obj
         User userToCreate = new User(uid, username, urlPicture);
 
         return UserHelper.getUsersCollection().document(uid).set(userToCreate);
     }
+     */
 
     // --- GET ---
 

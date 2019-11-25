@@ -46,6 +46,7 @@ public class ProfileFragment extends BaseFragment {
 
     @Override
     public int getFragmentLayout() { return R.layout.profile_fragment; }
+    /*
 
     // --------------------
     // ACTIONS
@@ -148,7 +149,7 @@ public class ProfileFragment extends BaseFragment {
                         getActivity().finish();
                         break;
                     case DELETE_USER_TASK:
-                        getActivity().finish();
+                        //getActivity().finish();
                         break;
                     default:
                         break;
@@ -156,4 +157,5 @@ public class ProfileFragment extends BaseFragment {
             }
         };
     }
+     */
 }

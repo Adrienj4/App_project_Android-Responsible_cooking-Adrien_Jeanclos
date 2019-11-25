@@ -1,22 +1,58 @@
 package com.example.responsiblecooking.ui.home;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 
+import com.bumptech.glide.Glide;
+import com.example.responsiblecooking.AddRecipeActivity;
 import com.example.responsiblecooking.R;
 import com.example.responsiblecooking.base.BaseFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
-import androidx.annotation.Nullable;
+import java.util.ArrayList;
 
-public class HomeFragment extends BaseFragment {
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+import butterknife.BindView;
+
+public class HomeFragment extends Fragment {
 
     public HomeFragment() { }
 
     private HomeViewModel homeViewModel;
 
+    // FOR DESIGN
+    @BindView(R.id.recycler_view)
+    RecyclerView recyclerView;
+    @BindView(R.id.home_fragment_swipe_container)
+    SwipeRefreshLayout swipeRefreshLayout;
+    @BindView(R.id.floatingActionButtonAdd)
+    FloatingActionButton fabButton;
+
     @Override
-    public int getFragmentLayout() { return R.layout.home_fragment; }
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View result = inflater.inflate(R.layout.home_fragment, container, false);
+        initUI(result);
+        return result;
+    }
+
+    private void initUI(View view) {
+        fabButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), AddRecipeActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
 
     /*
     //FOR DATA
@@ -24,12 +60,9 @@ public class HomeFragment extends BaseFragment {
     public static final String REQUEST_ANDROID = "android material design";
     public static final String REQUEST_LOGO = "logo";
     public static final String REQUEST_LANDSCAPE = "landscape";
+     */
 
-    // FOR DESIGN
-    @BindView(R.id.recycler_view)
-    RecyclerView recyclerView;
-    @BindView(R.id.home_fragment_swipe_container)
-    SwipeRefreshLayout swipeRefreshLayout;
+    /*
     private ProjectAdapter projectAdapter;
 
     @Override
@@ -61,13 +94,4 @@ public class HomeFragment extends BaseFragment {
     }
 
      */
-
-    FloatingActionButton fab = getActivity().findViewById(R.id.floatingActionButtonAdd);
-    fab.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            Snackbar.make(view, "Here's a Snackbar", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show();
-        }
-    });
 }
