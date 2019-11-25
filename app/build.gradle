@@ -65,6 +65,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth:19.1.0'
     implementation "com.google.firebase:firebase-core:17.2.1"
     implementation 'com.google.firebase:firebase-messaging:20.0.1'
+    implementation 'com.google.firebase:firebase-database:19.2.0'
 
     //FACEBOOK LOGIN SUPPORT
     implementation 'com.facebook.android:facebook-android-sdk:[4,5)'

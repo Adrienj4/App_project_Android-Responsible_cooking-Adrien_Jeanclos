@@ -1,27 +1,14 @@
 package com.example.responsiblecooking.ui.profile;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.text.TextUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
 import com.example.responsiblecooking.R;
 import com.example.responsiblecooking.base.BaseFragment;
-import com.firebase.ui.auth.AuthUI;
-import com.firebase.ui.auth.data.model.User;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.example.responsiblecooking.api.UserHelper;
-
-import java.util.concurrent.Executor;
 
 import butterknife.BindView;
-import butterknife.OnClick;
 
 public class ProfileFragment extends BaseFragment {
 
@@ -46,8 +33,8 @@ public class ProfileFragment extends BaseFragment {
 
     @Override
     public int getFragmentLayout() { return R.layout.profile_fragment; }
-    /*
 
+    /*
     // --------------------
     // ACTIONS
     // --------------------
