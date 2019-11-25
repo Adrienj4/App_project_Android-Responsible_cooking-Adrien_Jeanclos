@@ -7,7 +7,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 /**
- * Created by Philippe on 30/01/2018.
+ * Created by <Adrien JEANCLOS> on <DATE-DU-JOUR>.
  */
 
 public class UserHelper {

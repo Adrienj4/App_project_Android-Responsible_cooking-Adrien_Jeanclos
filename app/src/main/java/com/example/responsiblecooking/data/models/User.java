@@ -9,8 +9,7 @@ public class User {
 
     private String userId;
     private String userName;
-    @Nullable
-    private String urlPicture;
+    @Nullable private String urlPicture;
 
     public User() { }
 
@@ -27,7 +26,6 @@ public class User {
     public String getUserName() {
         return userName;
     }
-    @Nullable
     public String getUrlPicture() {
         return urlPicture;
     }
@@ -39,7 +37,7 @@ public class User {
     public void setUserName(String userName) {
         this.userName = userName;
     }
-    public void setUrlPicture(@Nullable String urlPicture) {
+    public void setUrlPicture(String urlPicture) {
         this.urlPicture = urlPicture;
     }
 }
