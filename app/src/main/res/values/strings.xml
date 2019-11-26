@@ -25,7 +25,9 @@
     <!-- LOGIN ACTIVITY -->
     <string name="toolbar_title_login_activity">Your Profile</string>
     <string name="text_input_username">Username</string>
+    <string name="username" translatable="false">username</string>
     <string name="text_view_email">Email adress :</string>
+    <string name="email" translatable="false">Email</string>
     <string name="button_update_account">Update username</string>
     <string name="button_delete_account">Delete your account</string>
     <string name="button_sign_out_account">Sign out</string>
@@ -34,6 +36,5 @@
     <string name="popup_message_confirmation_delete_account">Are you to delete your account ?</string>
     <string name="popup_message_choice_yes">Yes !</string>
     <string name="popup_message_choice_no">No</string>
-    <string name="email">Email</string>
 
 </resources>

@@ -8,114 +8,108 @@
     android:background="@android:color/white"
     tools:context="com.example.responsiblecooking.ui.profile.ProfileFragment">
 
-    <!-- USER DATA CONTAINER -->
-    <LinearLayout
+    <!-- PROFILE IMAGE -->
+    <ImageView
+        android:id="@+id/profile_imageView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="175dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="0dp"
+        app:srcCompat="@drawable/ic_anon_user_48dp" />
+
+    <TextView
+        android:id="@+id/textViewUsername"
+        android:layout_width="275dp"
+        android:layout_height="42dp"
+        android:layout_below="@+id/profile_imageView"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="35dp"
         android:gravity="center"
-        android:orientation="vertical"
-        android:layout_weight="1">
+        android:hint="@string/text_input_username"
+        android:text="@string/username" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_margin="@dimen/default_large_margin">
+    <TextView
+        android:id="@+id/editViewEmail"
+        android:layout_width="261dp"
+        android:layout_height="46dp"
+        android:layout_below="@+id/textViewUsername"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="35dp"
+        android:gravity="center"
+        android:hint="@string/text_view_email"
+        android:text="@string/email" />
 
-            <!-- PROFILE IMAGE -->
-            <ImageView
-                android:id="@+id/profile_activity_imageview_profile"
-                android:layout_width="388dp"
-                android:layout_height="130dp"
-                app:srcCompat="@drawable/ic_anon_user_48dp" />
+    <TextView
+        android:id="@+id/textViewNbRecipeAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="60dp"
+        android:layout_marginEnd="80dp"
+        android:layout_marginBottom="60dp"
+        android:layout_toStartOf="@+id/textViewNbRecipeAddText"
+        android:gravity="center"
+        android:text="Recipes add" />
 
-        </LinearLayout>
+    <TextView
+        android:id="@+id/textViewNbRecipeAddText"
+        android:layout_width="100dp"
+        android:layout_height="35dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="65dp"
+        android:layout_marginBottom="60dp"
+        android:gravity="center"
+        android:text="Favorite recipes" />
 
-        <!-- PROFILE USERNAME -->
-        <android.support.design.widget.TextInputEditText
-            android:id="@+id/profile_activity_edit_text_username"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/default_text_size"
-            android:text="@string/text_input_username"
-            android:layout_margin="@dimen/default_margin"/>
+    <TextView
+        android:id="@+id/textViewNb"
+        android:layout_width="100dp"
+        android:layout_height="110dp"
+        android:layout_above="@+id/textViewNbRecipeAdd"
+        android:layout_below="@+id/editViewEmail"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="65dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="80dp"
+        android:layout_marginBottom="30dp"
+        android:layout_toStartOf="@+id/textView6"
+        android:text="NB"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimary"
+        android:textIsSelectable="false"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
-        <!-- PROFILE EMAIL CONTAINER -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_margin="@dimen/default_margin">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/email"
-                android:textSize="@dimen/default_text_size"
-                android:textStyle="bold"/>
-
-            <!-- PROFILE EMAIL -->
-            <TextView
-                android:id="@+id/profile_activity_text_view_email"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/default_text_size"
-                android:paddingLeft="@dimen/default_margin"/>
-
-        </LinearLayout>
-
-
-
-    </LinearLayout>
-
-    <!-- BUTTONS CONTAINER -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="bottom"
-        android:orientation="vertical"
-        android:layout_weight="1">
-
-        <!-- BUTTON UPDATE USERNAME -->
-        <Button
-            android:id="@+id/profile_activity_button_update"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Update account"
-            android:textColor="#fff"
-            android:textSize="@dimen/default_text_size"
-            android:background="@drawable/button_radius_primary_color"
-            style="?android:attr/borderlessButtonStyle"
-            android:layout_margin="@dimen/default_margin"
-            android:padding="@dimen/default_margin"/>
-
-        <!-- BUTTON SIGN OUT -->
-        <Button
-            android:id="@+id/profile_activity_button_sign_out"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Sign out"
-            android:textColor="#fff"
-            android:textSize="@dimen/default_text_size"
-            android:background="@drawable/button_radius_primary_color"
-            style="?android:attr/borderlessButtonStyle"
-            android:layout_margin="@dimen/default_margin"
-            android:padding="@dimen/default_margin"/>
-
-        <!-- BUTTON DELETE ACCOUNT -->
-        <Button
-            android:id="@+id/profile_activity_button_delete"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Delete account"
-            android:textColor="#fff"
-            android:textSize="@dimen/default_text_size"
-            android:background="@drawable/button_radius_error_color"
-            style="?android:attr/borderlessButtonStyle"
-            android:layout_margin="@dimen/default_margin"
-            android:padding="@dimen/default_margin"/>
-
-    </LinearLayout>
-
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="100dp"
+        android:layout_height="110dp"
+        android:layout_above="@+id/textViewNbRecipeAddText"
+        android:layout_below="@+id/editViewEmail"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="65dp"
+        android:layout_marginBottom="30dp"
+        android:gravity="center_horizontal"
+        android:text="NB"
+        android:textColor="@color/colorPrimary"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
 </RelativeLayout>

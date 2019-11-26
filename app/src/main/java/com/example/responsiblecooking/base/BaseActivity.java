@@ -23,23 +23,15 @@ public abstract class BaseActivity extends AppCompatActivity {
     // LIFE CYCLE
     // --------------------
 
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        this.setContentView(this.getFragmentLayout());
-        ButterKnife.bind(this); //Configure Butterknife
-    }
+    //@Override
+    //protected void onCreate(@Nullable Bundle savedInstanceState) {
+    //    super.onCreate(savedInstanceState);
+    //    this.setContentView(this.getFragmentLayout());
+    //    ButterKnife.bind(this); //Configure Butterknife
+    //}
 
-    public abstract int getFragmentLayout();
+    //public abstract int getFragmentLayout();
 
-    // --------------------
-    // UI
-    // --------------------
-
-    protected void configureToolbar(){
-        ActionBar ab = getSupportActionBar();
-        ab.setDisplayHomeAsUpEnabled(true);
-    }
 
     // --------------------
     // ERROR HANDLER

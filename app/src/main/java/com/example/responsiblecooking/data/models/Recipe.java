@@ -8,22 +8,37 @@ import java.util.Date;
 
 public class Recipe {
 
+    private String recipeTitle;
     private String ingredients;
     private String recipe;
     private Date dateAdded;
-    private User userSender;
+    private Users userSender;
     private String urlImage;
 
     public Recipe() {}
 
-    public Recipe(String ingredients, String recipe, User userSender) {
+    public Recipe(String recipeTitle) {
+        this.recipeTitle = recipeTitle;
+    }
+
+    public Recipe(String recipeTitle, String ingredients, String recipe) {
+        this.recipeTitle = recipeTitle;
         this.ingredients = ingredients;
         this.recipe = recipe;
-        //this.userSender = userSender;
+    }
+
+    public Recipe(String recipeTitle, String ingredients, String recipe, Users userSender) {
+        this.recipeTitle = recipeTitle;
+        this.ingredients = ingredients;
+        this.recipe = recipe;
+        this.userSender = userSender;
     }
 
     // -- GETTERS --
 
+    public String getRecipeTitle() {
+        return recipeTitle;
+    }
     public String getIngredients() {
         return ingredients;
     }
@@ -34,7 +49,7 @@ public class Recipe {
     public Date getDateAdded() {
         return dateAdded;
     }
-    public User getUserSender() {
+    public Users getUserSender() {
         return userSender;
     }
     public void getUrlImage(String urlImage) {
@@ -43,6 +58,9 @@ public class Recipe {
 
     // -- SETTERS --
 
+    public void setRecipeTitle(String recipeTitle) {
+        this.recipeTitle = recipeTitle;
+    }
     public void setIngredients(String ingredients) {
         this.ingredients = ingredients;
     }
@@ -52,9 +70,9 @@ public class Recipe {
     public void setDateAdded(Date dateAdded) {
         this.dateAdded = dateAdded;
     }
-    //public void setUserSender(User userSender) {
-    //    this.userSender = userSender;
-    //}
+    public void setUserSender(Users userSender) {
+        this.userSender = userSender;
+    }
     public void setUrlImage(String urlImage) {
         this.urlImage = urlImage;
     }

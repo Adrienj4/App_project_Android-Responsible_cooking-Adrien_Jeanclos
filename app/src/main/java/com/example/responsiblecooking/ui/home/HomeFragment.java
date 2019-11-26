@@ -1,21 +1,23 @@
 package com.example.responsiblecooking.ui.home;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
-import com.example.responsiblecooking.AddRecipeActivity;
+import com.example.responsiblecooking.MainActivity;
+import com.example.responsiblecooking.RecyclerViewAdapter;
 import com.example.responsiblecooking.R;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.example.responsiblecooking.data.models.Recipe;
+import com.google.firebase.database.DatabaseReference;
+
+import java.util.List;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProviders;
-import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import butterknife.BindView;
 
 public class HomeFragment extends Fragment {
@@ -24,35 +26,33 @@ public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
 
-    // FOR DESIGN
-    @BindView(R.id.recycler_view)
-    RecyclerView recyclerView;
-    @BindView(R.id.home_fragment_swipe_container)
-    SwipeRefreshLayout swipeRefreshLayout;
-    //@BindView(R.id.floatingActionButtonAdd)
-    //FloatingActionButton fabButton;
+    //private static final String TAG = MainActivity.class.getSimpleName();
+
+    private LinearLayoutManager linearLayoutManager;
+    private RecyclerViewAdapter MyAdapter;
+    private EditText addRecipeBox;
+    private DatabaseReference databaseReference;
+    private List<Recipe> allRecipes;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
         View result = inflater.inflate(R.layout.home_fragment, container, false);
 
-        homeViewModel = ViewModelProviders.of(this).get(HomeViewModel.class);
-
+        RecyclerView recyclerView = (RecyclerView) result.findViewById(R.id.recyclerViewHome);
         recyclerView.setHasFixedSize(true);
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(new String[]{"Example One", "Example Two", "Example Three", "Example Four", "Example Five", "Example Six"});
+        recyclerView.setAdapter(adapter);
 
-        // Set the animator
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        linearLayoutManager = new LinearLayoutManager(getActivity());
+        recyclerView.setLayoutManager(linearLayoutManager);
+
         return result;
     }
-    /*
-    private void initUI(View view) {
-        fabButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), AddRecipeActivity.class);
-                startActivity(intent);
-            }
-        });
-    }
-     */
 }

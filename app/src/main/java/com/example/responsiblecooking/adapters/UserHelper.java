@@ -1,9 +1,6 @@
-package com.example.responsiblecooking.api;
+package com.example.responsiblecooking.adapters;
 
-import com.firebase.ui.auth.data.model.User;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 /**
@@ -19,16 +16,15 @@ public class UserHelper {
     public static CollectionReference getUsersCollection(){
         return FirebaseFirestore.getInstance().collection(COLLECTION_NAME);
     }
-
-    // --- CREATE ---
     /*
+    // --- CREATE ---
+
     public static Task<Void> createUser(String uid, String username, String urlPicture) {
         // 1 - Create Obj
-        User userToCreate = new User(uid, username, urlPicture);
+        Users userToCreate = new Users(uid, username, urlPicture);
 
         return UserHelper.getUsersCollection().document(uid).set(userToCreate);
     }
-     */
 
     // --- GET ---
 
@@ -47,5 +43,5 @@ public class UserHelper {
     public static Task<Void> deleteUser(String uid) {
         return UserHelper.getUsersCollection().document(uid).delete();
     }
-
+     */
 }
