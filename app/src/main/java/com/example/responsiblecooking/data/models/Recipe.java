@@ -9,29 +9,15 @@ import java.util.Date;
 public class Recipe {
 
     private String recipeTitle;
-    private String ingredients;
-    private String recipe;
-    private Date dateAdded;
-    private Users userSender;
-    private String urlImage;
+    private String recipeIngredients;
+    private String recipeSteps;
 
     public Recipe() {}
 
-    public Recipe(String recipeTitle) {
+    public Recipe(String recipeTitle, String ingredients, String recipeSteps) {
         this.recipeTitle = recipeTitle;
-    }
-
-    public Recipe(String recipeTitle, String ingredients, String recipe) {
-        this.recipeTitle = recipeTitle;
-        this.ingredients = ingredients;
-        this.recipe = recipe;
-    }
-
-    public Recipe(String recipeTitle, String ingredients, String recipe, Users userSender) {
-        this.recipeTitle = recipeTitle;
-        this.ingredients = ingredients;
-        this.recipe = recipe;
-        this.userSender = userSender;
+        this.recipeIngredients = recipeIngredients;
+        this.recipeSteps = recipeSteps;
     }
 
     // -- GETTERS --
@@ -39,21 +25,11 @@ public class Recipe {
     public String getRecipeTitle() {
         return recipeTitle;
     }
-    public String getIngredients() {
-        return ingredients;
+    public String getRecipeIngredients() {
+        return recipeIngredients;
     }
-    public String getRecipe() {
-        return recipe;
-    }
-    //@SeverTimestamp
-    public Date getDateAdded() {
-        return dateAdded;
-    }
-    public Users getUserSender() {
-        return userSender;
-    }
-    public void getUrlImage(String urlImage) {
-        this.urlImage = urlImage;
+    public String getRecipeSteps() {
+        return recipeSteps;
     }
 
     // -- SETTERS --
@@ -61,19 +37,10 @@ public class Recipe {
     public void setRecipeTitle(String recipeTitle) {
         this.recipeTitle = recipeTitle;
     }
-    public void setIngredients(String ingredients) {
-        this.ingredients = ingredients;
+    public void setRecipeIngredients(String recipeIngredients) {
+        this.recipeIngredients = recipeIngredients;
     }
-    public void setRecipe(String recipe) {
-        this.recipe = recipe;
-    }
-    public void setDateAdded(Date dateAdded) {
-        this.dateAdded = dateAdded;
-    }
-    public void setUserSender(Users userSender) {
-        this.userSender = userSender;
-    }
-    public void setUrlImage(String urlImage) {
-        this.urlImage = urlImage;
+    public void setRecipeSteps(String recipeSteps) {
+        this.recipeSteps = recipeSteps;
     }
 }

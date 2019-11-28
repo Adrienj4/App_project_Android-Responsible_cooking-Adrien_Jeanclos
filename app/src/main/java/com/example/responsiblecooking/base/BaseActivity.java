@@ -19,9 +19,6 @@ import butterknife.ButterKnife;
  * Created by <Adrien JEANCLOS> on <DATE-DU-JOUR>.
  */
 public abstract class BaseActivity extends AppCompatActivity {
-    // --------------------
-    // LIFE CYCLE
-    // --------------------
 
     //@Override
     //protected void onCreate(@Nullable Bundle savedInstanceState) {

@@ -1,5 +1,6 @@
 package com.example.responsiblecooking.ui.recipes;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
@@ -18,6 +19,11 @@ public class RecipesFragment extends BaseFragment {
 
     private RecipesViewModel mViewModel;
 
+    @Nullable
     @Override
-    public int getFragmentLayout() { return R.layout.recipes_fragment; }
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View result = inflater.inflate(R.layout.recipes_fragment, container, false);
+
+        return result;
+    }
 }

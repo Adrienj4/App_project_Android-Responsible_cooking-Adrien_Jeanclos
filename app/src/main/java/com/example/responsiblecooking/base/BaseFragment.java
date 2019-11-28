@@ -21,13 +21,13 @@ import androidx.fragment.app.Fragment;
  */
 public abstract class BaseFragment extends Fragment {
 
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(this.getFragmentLayout(), container, false);
-    }
+    //@Nullable
+    //@Override
+    //public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    //    return inflater.inflate(this.getFragmentLayout(), container, false);
+    //}
 
-    public abstract int getFragmentLayout();
+    //public abstract int getFragmentLayout();
 
     // --------------------
     // UI

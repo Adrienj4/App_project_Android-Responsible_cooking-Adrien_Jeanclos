@@ -4,16 +4,22 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.responsiblecooking.adapters.UserHelper;
 import com.example.responsiblecooking.base.BaseActivity;
 import com.example.responsiblecooking.ui.home.HomeFragment;
 import com.example.responsiblecooking.ui.profile.ProfileFragment;
 import com.example.responsiblecooking.ui.recipes.RecipesFragment;
 import com.example.responsiblecooking.ui.search.SearchFragment;
 import com.firebase.ui.auth.AuthUI;
+import com.firebase.ui.auth.ErrorCodes;
+import com.firebase.ui.auth.IdpResponse;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -21,6 +27,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import androidx.annotation.NonNull;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.fragment.app.Fragment;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -32,6 +39,8 @@ import butterknife.ButterKnife;
 public class MainActivity extends BaseActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
     //For design
+    @BindView(R.id.main_activity_coordinator_layout)
+    RelativeLayout relativeLayout;
     @BindView(R.id.bottom_navigation)
     BottomNavigationView bottomNavigationView;
     @BindView(R.id.floatingActionButtonAdd)
@@ -56,7 +65,7 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
             loadFragment(new HomeFragment());
             fabEdit.hide();
             Toast.makeText(getApplicationContext(),
-                    "Welcome Mr " + user.getDisplayName(),
+                    "Welcome " + user.getDisplayName(),
                     Toast.LENGTH_SHORT).show();
             //Getting bottom navigation view and attaching the listener
             BottomNavigationView navView = findViewById(R.id.bottom_navigation);
@@ -147,32 +156,10 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
                 RC_SIGN_IN);
     }
 
-    /*
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         this.handleResponseAfterSignIn(requestCode, resultCode, data);
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-    }
-
-    // --------------------
-    // REST REQUEST
-    // --------------------
-
-    private void createUserInFirestore(){
-
-        if (this.getCurrentUser() != null){
-
-            String urlPicture = (this.getCurrentUser().getPhotoUrl() != null) ? this.getCurrentUser().getPhotoUrl().toString() : null;
-            String username = this.getCurrentUser().getDisplayName();
-            String uid = this.getCurrentUser().getUid();
-
-            UserHelper.createUser(uid, username, urlPicture).addOnFailureListener(this.onFailureListener());
-        }
     }
 
     // --------------------
@@ -184,8 +171,20 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
     }
 
     // --------------------
-    // UTILS
+    // REST REQUEST
     // --------------------
+
+    // 1 - Http request that create user in firestore
+    private void createUserInFirestore(){
+
+        if (this.getCurrentUser() != null){
+
+            String userName = this.getCurrentUser().getDisplayName();
+            String uId = this.getCurrentUser().getUid();
+
+            UserHelper.createUser(uId, userName).addOnFailureListener(this.onFailureListener());
+        }
+    }
 
     private void handleResponseAfterSignIn(int requestCode, int resultCode, Intent data){
 
@@ -194,17 +193,18 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
         if (requestCode == RC_SIGN_IN) {
             if (resultCode == RESULT_OK) { // SUCCESS
                 this.createUserInFirestore();
-                showSnackBar(this.coordinatorLayout, getString(R.string.connection_succeed));
+                //showSnackBar(this.coordinatorLayout, getString(R.string.connection_succeed));
             } else { // ERRORS
+                /*
                 if (response == null) {
-                    showSnackBar(this.coordinatorLayout, getString(R.string.error_authentication_canceled));
+                    showSnackBar(this.relativeLayout, getString(R.string.error_authentication_canceled));
                 } else if (response.getError().getErrorCode() == ErrorCodes.NO_NETWORK) {
-                    showSnackBar(this.coordinatorLayout, getString(R.string.error_no_internet));
+                    showSnackBar(this.relativeLayout, getString(R.string.error_no_internet));
                 } else if (response.getError().getErrorCode() == ErrorCodes.UNKNOWN_ERROR) {
-                    showSnackBar(this.coordinatorLayout, getString(R.string.error_unknown_error));
+                    showSnackBar(this.relativeLayout, getString(R.string.error_unknown_error));
                 }
+                 */
             }
         }
     }
-     */
 }

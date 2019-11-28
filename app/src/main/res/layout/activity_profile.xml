@@ -70,6 +70,14 @@
             android:textSize="16sp"
             tools:layout_editor_absoluteX="99dp" />
 
+        <!-- PROGRESS BAR -->
+        <ProgressBar
+            android:id="@+id/profile_activity_progress_bar"
+            android:layout_width="30dip"
+            android:layout_height="30dip"
+            android:visibility="invisible"
+            android:layout_margin="@dimen/default_large_margin"/>
+
         <EditText
             android:id="@+id/editTextOldPassword"
             android:layout_width="250dp"

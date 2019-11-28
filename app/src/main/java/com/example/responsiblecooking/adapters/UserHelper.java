@@ -1,6 +1,9 @@
 package com.example.responsiblecooking.adapters;
 
+import com.example.responsiblecooking.data.models.User;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 /**
@@ -16,14 +19,12 @@ public class UserHelper {
     public static CollectionReference getUsersCollection(){
         return FirebaseFirestore.getInstance().collection(COLLECTION_NAME);
     }
-    /*
+
     // --- CREATE ---
 
-    public static Task<Void> createUser(String uid, String username, String urlPicture) {
-        // 1 - Create Obj
-        Users userToCreate = new Users(uid, username, urlPicture);
-
-        return UserHelper.getUsersCollection().document(uid).set(userToCreate);
+    public static Task<Void> createUser(String uId, String uName/*, String uEmail, String uPassword*/) {
+        User userToCreate = new User(uId, uName/*, uEmail, uPassword*/);
+        return UserHelper.getUsersCollection().document(uId).set(userToCreate);
     }
 
     // --- GET ---
@@ -34,8 +35,16 @@ public class UserHelper {
 
     // --- UPDATE ---
 
-    public static Task<Void> updateUsername(String username, String uid) {
-        return UserHelper.getUsersCollection().document(uid).update("username", username);
+    public static Task<Void> updateUserName(String userName, String uid) {
+        return UserHelper.getUsersCollection().document(uid).update("userName", userName);
+    }
+
+    public static Task<Void> updateUserEmail(String userEmail, String uid) {
+        return UserHelper.getUsersCollection().document(uid).update("userEmail", userEmail);
+    }
+
+    public static Task<Void> updateUserPassword(String userPassword, String uid) {
+        return UserHelper.getUsersCollection().document(uid).update("userPassword", userPassword);
     }
 
     // --- DELETE ---
@@ -43,5 +52,5 @@ public class UserHelper {
     public static Task<Void> deleteUser(String uid) {
         return UserHelper.getUsersCollection().document(uid).delete();
     }
-     */
+
 }
