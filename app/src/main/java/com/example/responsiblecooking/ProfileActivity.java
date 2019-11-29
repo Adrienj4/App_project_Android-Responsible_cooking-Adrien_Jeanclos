@@ -2,13 +2,16 @@ package com.example.responsiblecooking;
 
 import androidx.appcompat.app.AppCompatActivity;
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.example.responsiblecooking.adapters.UserHelper;
 import com.example.responsiblecooking.base.BaseActivity;
@@ -24,6 +27,11 @@ public class ProfileActivity extends BaseActivity {
     @BindView(R.id.profile_activity_progress_bar)
     ProgressBar progressBar;
 
+    @BindView(R.id.buttonSave)
+    Button buttonUpdate;
+
+
+
     // Creating identifier to identify REST REQUEST
     private static final int SIGN_OUT_TASK = 10;
     private static final int DELETE_USER_TASK = 20;
@@ -33,15 +41,15 @@ public class ProfileActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-
+        ButterKnife.bind(this); //Configure Butterknife
     }
     /*
-    // --------------------
-    // ACTIONS
-    // --------------------
-
     @OnClick(R.id.buttonSave)
-    public void onClickUpdateButton() { this.updateUsernameInFirebase(); }
+    public void onClickUpdate() {
+        this.updateUsernameInFirebase();
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
 
     // --------------------
     // REST REQUESTS
@@ -53,11 +61,11 @@ public class ProfileActivity extends BaseActivity {
 
         EditText editTextUserName = (EditText)findViewById(R.id.editTextUsername);
 
-        String username = editTextUserName.getText().toString();
+        String userName = editTextUserName.getText().toString();
 
         if (user != null){
-            if (!username.isEmpty() &&  !username.equals(getString(R.string.info_no_username_found))){
-                UserHelper.updateUserName(username, user.getUid()).addOnFailureListener(this.onFailureListener()).addOnSuccessListener(this.updateUIAfterRESTRequestsCompleted(UPDATE_USERNAME));
+            if (!userName.isEmpty() &&  !userName.equals(getString(R.string.info_no_username_found))){
+                UserHelper.updateUserName(userName, user.getUid()).addOnFailureListener(this.onFailureListener()).addOnSuccessListener(this.updateUIAfterRESTRequestsCompleted(UPDATE_USERNAME));
             }
         }
     }
@@ -72,7 +80,8 @@ public class ProfileActivity extends BaseActivity {
             public void onSuccess(Void aVoid) {
                 switch (origin){
                     case UPDATE_USERNAME:
-                        progressBar.setVisibility(View.INVISIBLE);
+                        Intent intent = new Intent(ProfileActivity.this, MainActivity.class);
+                        startActivity(intent);
                         break;
                     case SIGN_OUT_TASK:
                         finish();
@@ -87,9 +96,5 @@ public class ProfileActivity extends BaseActivity {
         };
     }
 
-    public void ReturnHome(View view) {
-        Intent intent = new Intent(this, MainActivity.class);
-        view.getContext().startActivity(intent);
-    }
      */
 }
